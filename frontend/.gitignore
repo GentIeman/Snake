@@ -17,3 +17,6 @@ coverage
 
 /cypress/videos/
 /cypress/screenshots/
+
+# Files
+*.css
