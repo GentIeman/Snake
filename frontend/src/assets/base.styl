@@ -1,10 +1,17 @@
+// Basic reset styles
+:where(*) {
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+}
+
 :root {
   // primary colors
   --color-subscriptions: #2D2653
   --color-subtitle-attention-modal: #423F72
   --color-prymary: #433491
-  --color-secondary: #625B85
   --color-interlocutors-reply: #5A576A
+  --color-secondary: #625B85
   --color-dialog-header: #6B718B
   --color-third: #AB9CC5
 
@@ -24,39 +31,32 @@
   --color-online: #4CE087
   --color-chat-hover: linear-gradient(90deg, rgba(18, 14, 24, 0.1) 0%, rgba(255, 255, 255, 0.1) 206.86%)
 
-  // forms
-  --input-border-radius: 5px
+  // blocks
   --input-placeholder-padding: 18px 20px
   --checkbox-border-radius: 7px
-  --btn-border-radius-small: 3px
-  --btn-border-radius-medium: 5px
-  --btn-border-radius-large: 10px
+  --border-radius-small: 3px
+  --border-radius-medium: 5px
+  --border-radius-large: 10px
 
-  // blocks
-  --chats-sidebar-min-width: 90px
-  --chat-avatar-border-radius: 10px
   --chat-avatar-width-medium: 50px
   --chat-avatar-height-medium: 50px
   --chat-avatar-width-large: 60px
   --chat-avatar-height-large: 60px
   --chat-max-width: 280px
   --chat-max-height: 50px
+
   --contextmenu-width: 200px
-  --contextmenu-border-radius: 5px
   --contextmenu-padding: 16px 0
   --contextmenu-drop-shadow: 0px 2px 6px rgba(148, 148, 148, 0.09)
-  --avatar-border-radius: 50%
-  --files-border-radius: 10px
-  --video-duration-border-radius: 10px
-  --attention-modal-border-radius: 10px
+
   --msg-max-width: 308px
   --msg-padding: 10px
+
   --user-info-max-width: 300px
 
   // fonts
   --font-input: "Roboto", sans-serif
   --font-primary: "Radio Canada", sans-serif
-  --font-primary-bold: "Radio Canada", sans-serif
   --font-secondary: "Arial", sans-serif
 
   // font sizes
