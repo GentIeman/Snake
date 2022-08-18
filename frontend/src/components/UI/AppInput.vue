@@ -28,8 +28,6 @@ const props = defineProps({
 
 const typeValidator = computed(() => props.type.toLowerCase())
 
-console.log(typeValidator.value)
-
 const placeholderValidator = computed(() => props.placeholder)
 
 const nameValidator = computed(() => props.name.toLowerCase())
