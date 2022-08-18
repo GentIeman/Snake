@@ -11,17 +11,25 @@
         action=""
         class="sign-container__form"
         @submit.prevent>
-        <label for="" class="sign-container__input-wrap sign-container__input-wrap_focus sign-container__input-wrap_hover">
+        <label
+          for=""
+          class="sign-container__input-wrap sign-container__input-wrap_focus sign-container__input-wrap_hover">
           <Input
             type="email"
             placeholder="Email"
             name="email" />
         </label>
-        <label for="" class="sign-container__input-wrap sign-container__input-wrap_focus sign-container__input-wrap_hover">
+        <label
+          for=""
+          class="sign-container__input-wrap sign-container__input-wrap_focus sign-container__input-wrap_hover">
           <InputPassword placeholder="Password" />
         </label>
         <div class="automatically-visit">
-          <Checkbox class="automatically-visit__checkbox" />
+          <label
+            for=""
+            class="sign-container__checkbox-wrap sign-container__checkbox-wrap_hover sign-container__checkbox-wrap_focus">
+            <Checkbox />
+          </label>
           <span class="automatically-visit__text">Sign in automatically on each visit</span>
         </div>
         <PrimaryButton class="sign-container__btn">Sign in</PrimaryButton>
@@ -30,7 +38,10 @@
         <span class="sign-container__separator">or</span>
         <GoogleButton class="sign-container__login-google-btn" />
         <p class="sign-container__sign-up">First time with us?
-          <router-link to="/register" class="sign-container__link sign-container__link_focus sign-container__link_hover">Sign up</router-link>
+          <router-link
+            to="/register"
+            class="sign-container__link sign-container__link_focus sign-container__link_hover">Sign up
+          </router-link>
         </p>
       </footer>
     </div>
@@ -84,6 +95,20 @@ import GoogleButton from "@/components/UI/AppGoogleButton.vue"
 
     &:is(&_hover:hover, &_focus:focus-within)
       box-shadow: 0 0 0 2px $secondary
+
+  &__checkbox-wrap
+    display: grid
+    place-items: center
+    position: relative
+    width: 22px
+    height: 22px
+    border: solid 1.5px $secondary
+    background-color: $checkbox-background
+    border-radius: $checkbox-border-radius
+    transition: box-shadow .2s ease-in-out
+
+    &:is(&_hover:hover, &_focus:focus-within)
+      box-shadow: 0 0 0 1px $secondary
 
   &__btn
     width: 100%
@@ -144,14 +169,6 @@ import GoogleButton from "@/components/UI/AppGoogleButton.vue"
   align-items: center
   gap: 0 10px
   margin: 30px 0
-
-  &__checkbox
-    display: flex
-    justify-content: center
-    align-items: center
-    position: relative
-    width: 22px
-    height: 22px
 
   &__text
     @include font-style(normal, $font-size-small, $font-roboto, $white)
