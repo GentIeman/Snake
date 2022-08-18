@@ -66,7 +66,6 @@ import InputPassword from "@/components/UI/AppInputPassword.vue"
 import Checkbox from "@/components/UI/AppCheckbox.vue"
 import PrimaryButton from "@/components/UI/AppPrimaryButton.vue"
 import GoogleButton from "@/components/UI/AppGoogleButton.vue"
-import IconArrowRight from "@/components/icons/AppArrowRight.vue"
 </script>
 
 <style scoped lang="sass">
