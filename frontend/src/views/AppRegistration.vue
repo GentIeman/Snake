@@ -8,48 +8,48 @@
         </h1>
       </header>
       <form
-        action=""
-        class="sign-container__form"
-        @submit.prevent>
+          action=""
+          class="sign-container__form"
+          @submit.prevent>
         <label
-          for=""
-          class="sign-container__input-wrap sign-container__input-wrap_focus sign-container__input-wrap_hover">
+            for=""
+            class="sign-container__input-wrap sign-container__input-wrap_focus sign-container__input-wrap_hover">
           <Input
-            type="text"
-            placeholder="Nickname"
-            name="nickname" />
+              type="text"
+              placeholder="Nickname"
+              name="nickname"/>
         </label>
         <label
-          for=""
-          class="sign-container__input-wrap sign-container__input-wrap_focus sign-container__input-wrap_hover">
+            for=""
+            class="sign-container__input-wrap sign-container__input-wrap_focus sign-container__input-wrap_hover">
           <Input
-            type="email"
-            placeholder="Email"
-            name="email" />
+              type="email"
+              placeholder="Email"
+              name="email"/>
         </label>
         <label
-          for=""
-          class="sign-container__input-wrap sign-container__input-wrap_focus sign-container__input-wrap_hover">
-          <InputPassword placeholder="Password" />
+            for=""
+            class="sign-container__input-wrap sign-container__input-wrap_focus sign-container__input-wrap_hover">
+          <InputPassword placeholder="Password"/>
         </label>
         <div class="automatically-visit">
           <label
-            for=""
-            class="sign-container__checkbox-wrap sign-container__checkbox-wrap_hover sign-container__checkbox-wrap_focus">
-            <Checkbox />
+              for=""
+              class="sign-container__checkbox-wrap sign-container__checkbox-wrap_hover sign-container__checkbox-wrap_focus">
+            <Checkbox/>
           </label>
           <span class="automatically-visit__text">Sign in automatically on each visit</span>
         </div>
         <PrimaryButton class="sign-container__btn">Continue
           <i
-            class="fa fa-arrow-right"
-            aria-hidden="true">
+              class="fa fa-arrow-right sign-container__fa-arrow-right"
+              aria-hidden="true">
           </i>
         </PrimaryButton>
       </form>
       <footer class="sign-container__footer">
         <span class="sign-container__separator">or</span>
-        <GoogleButton class="sign-container__login-google-btn" />
+        <GoogleButton class="sign-container__login-google-btn"/>
         <p class="sign-container__sign-up">Already been with us?
           <router-link to="/auth" class="sign-container__link sign-container__link_focus sign-container__link_hover">
             Sign in
@@ -66,7 +66,6 @@ import InputPassword from "@/components/UI/AppInputPassword.vue"
 import Checkbox from "@/components/UI/AppCheckbox.vue"
 import PrimaryButton from "@/components/UI/AppPrimaryButton.vue"
 import GoogleButton from "@/components/UI/AppGoogleButton.vue"
-import IconArrowRight from "@/components/icons/AppArrowRight.vue"
 </script>
 
 <style scoped lang="sass">
@@ -125,6 +124,9 @@ import IconArrowRight from "@/components/icons/AppArrowRight.vue"
 
     &:is(&_hover:hover, &_focus:focus-within)
       box-shadow: 0 0 0 1px $secondary
+
+  &__fa-arrow-right
+    font-size: 1.5rem
 
   &__btn
     width: 100%
