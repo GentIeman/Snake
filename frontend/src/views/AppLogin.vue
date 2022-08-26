@@ -22,7 +22,10 @@
         <label
           for=""
           class="sign-container__input-wrap sign-container__input-wrap_focus sign-container__input-wrap_hover">
-          <InputPassword placeholder="Password" />
+          <Input
+            type="password"
+            placeholder="Password"
+            name="password" />
         </label>
         <div class="automatically-visit">
           <label
@@ -39,7 +42,7 @@
         <GoogleButton class="sign-container__login-google-btn" />
         <p class="sign-container__sign-up">First time with us?
           <router-link
-            to="/register"
+            to="/registration"
             class="sign-container__link sign-container__link_focus sign-container__link_hover">Sign up
           </router-link>
         </p>
@@ -50,7 +53,6 @@
 
 <script setup>
 import Input from "@/components/UI/AppInput.vue"
-import InputPassword from "@/components/UI/AppInputPassword.vue"
 import Checkbox from "@/components/UI/AppCheckbox.vue"
 import PrimaryButton from "@/components/UI/AppPrimaryButton.vue"
 import GoogleButton from "@/components/UI/AppGoogleButton.vue"
@@ -102,7 +104,7 @@ import GoogleButton from "@/components/UI/AppGoogleButton.vue"
     position: relative
     width: 22px
     height: 22px
-    border: solid 1.5px $secondary
+    border: solid $input-border-width $secondary
     background-color: $checkbox-background
     border-radius: $checkbox-border-radius
     transition: box-shadow .2s ease-in-out

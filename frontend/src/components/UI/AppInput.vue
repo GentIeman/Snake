@@ -1,23 +1,31 @@
 <template>
   <input
-    :type="typeValidator"
+    :type="localType"
     class="input input_focus input_hover"
-    :placeholder="placeholderValidator"
-    :name="nameValidator"
+    :placeholder="placeholder"
+    :name="name"
   >
+  <button
+    v-if="type === 'password'"
+    class="password-toggle"
+    :class="{'show_password': localType === 'text'}"
+    tabindex="-1"
+    @click="switchVisibility"
+  ></button>
 </template>
 
 <script setup>
-import { defineProps, computed } from "vue"
+import { ref } from "vue"
 
 const props = defineProps({
   type: {
     type: String,
+    default: "text",
     required: true
   },
   placeholder: {
     type: String,
-    default: "",
+    default: "Your text",
     required: false
   },
   name: {
@@ -25,13 +33,8 @@ const props = defineProps({
     required: true
   }
 })
-
-const typeValidator = computed(() => props.type.toLowerCase())
-
-const placeholderValidator = computed(() => props.placeholder)
-
-const nameValidator = computed(() => props.name.toLowerCase())
-
+let localType = ref(props.type)
+const switchVisibility = () => localType.value = localType.value === "password" ? "text" : "password"
 </script>
 
 <style scoped lang="sass">
@@ -56,4 +59,6 @@ const nameValidator = computed(() => props.name.toLowerCase())
   outline: none
   cursor: pointer
 
+.show_password
+  background-image: url("@/static/icons/eye.svg")
 </style>
