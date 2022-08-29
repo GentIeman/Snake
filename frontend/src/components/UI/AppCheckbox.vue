@@ -1,11 +1,24 @@
 <template>
-  <input type="checkbox" class="checkbox">
-  <span class="check-icon"></span>
+  <label
+    for=""
+    class="checkbox-wrap checkbox-wrap_hover checkbox-wrap_focus">
+    <input type="checkbox" class="checkbox">
+    <span class="check-icon"></span>
+  </label>
 </template>
 
 <script setup></script>
 
 <style scoped lang="sass">
+.checkbox-wrap
+  border: solid $input-border-width $secondary
+  background-color: $checkbox-background
+  border-radius: $checkbox-border-radius
+  transition: box-shadow .2s ease-in-out
+
+  &:is(&_hover:hover, &_focus:focus-within)
+    box-shadow: 0 0 0 1px $secondary
+
 .checkbox
   position: absolute
   opacity: 0
