@@ -11,36 +11,34 @@
         action=""
         class="sign-container__form"
         @submit.prevent>
-        <label
-          for=""
-          class="sign-container__input-wrap sign-container__input-wrap_focus sign-container__input-wrap_hover">
-          <Input
-            type="text"
-            placeholder="Nickname"
-            name="nickname" />
-        </label>
-        <label
-          for=""
-          class="sign-container__input-wrap sign-container__input-wrap_focus sign-container__input-wrap_hover">
-          <Input
-            type="email"
-            placeholder="Email"
-            name="email" />
-        </label>
-        <label
-          for=""
-          class="sign-container__input-wrap sign-container__input-wrap_focus sign-container__input-wrap_hover">
-          <Input
-            type="password"
-            placeholder="Password"
-            name="password" />
-        </label>
+        <Input
+          v-model:field-data.trim="user.nickname"
+          type="text"
+          placeholder="Nickname"
+          name="nickname"
+          class="sign-container__input-wrap"
+          validation-type="text" />
+        <Input
+          v-model:field-data.trim="user.email"
+          type="email"
+          placeholder="Email"
+          name="email"
+          class="sign-container__input-wrap"
+          validation-type="email" />
+        <Input
+          v-model:field-data.trim="user.password"
+          type="password"
+          placeholder="Password"
+          name="password"
+          class="sign-container__input-wrap"
+        />
+        <PasswordChecker
+          class="sign-container__password-check"
+          :class="{'sign-container__password-check_show': user.password}"
+          :not-checked-password="user.password"
+        />
         <div class="automatically-visit">
-          <label
-            for=""
-            class="sign-container__checkbox-wrap sign-container__checkbox-wrap_hover sign-container__checkbox-wrap_focus">
-            <Checkbox />
-          </label>
+          <Checkbox class="sign-container__checkbox-wrap" />
           <span class="automatically-visit__text">Sign in automatically on each visit</span>
         </div>
         <PrimaryButton class="sign-container__btn">Continue
