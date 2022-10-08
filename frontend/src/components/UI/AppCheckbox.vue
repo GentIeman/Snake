@@ -2,7 +2,10 @@
   <label
     for=""
     class="checkbox-wrap checkbox-wrap_hover checkbox-wrap_focus">
-    <input type="checkbox" class="checkbox">
+    <input
+      type="checkbox"
+      class="checkbox"
+    >
     <span class="check-icon"></span>
   </label>
 </template>
@@ -25,7 +28,7 @@
   width: inherit
   height: inherit
   cursor: pointer
-  z-index: 2
+  z-index: 1
 
   &:checked ~ .check-icon
     opacity: 1
