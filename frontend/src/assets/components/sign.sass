@@ -1,129 +1,27 @@
-@import "../global.sass"
+@import "../tools"
 
-.sign-content
+.auth
   display: flex
   width: 100%
-  height: clamp(100vh, 100%, 100%)
-  background-color: $secondary-background
+  height: 100%
+  background-color: $background
+  overflow-y: auto
 
-.sign-graphic
-  position: sticky
-  top: 0
-  left: 0
-  width: 50%
-  height: 100vh
-  border-radius: 0 40px 40px 0
-  background: no-repeat center/80% url("@/static/images/spiral.svg") $illustration-background
+  &__aside
+    position: sticky
+    top: 0
+    left: 0
+    width: 50%
+    height: 100%
+    border-radius: 0 40px 40px 0
+    overflow: clip
 
-.sign-container
-  width: 50%
-  height: inherit
-  padding: 60px 40px 40px 40px
-
-  &__header
-    position: relative
-
-  &__headline
-    @include font-style(bold, $font-size-large, $font-radio-canada, $white)
+  &__illustration
+    width: 100%
+    height: 100%
+    background: no-repeat center/80% url("@/static/images/spiral.svg") $illustration-background
 
   &__form
-    position: relative
-    margin-top: 20px
-
-  &__input-wrap
-    display: flex
-    width: 100%
-    height: 50px
-    margin-bottom: 30px
-
-    &:last-of-type
-      margin-bottom: 0
-
-  &__checkbox-wrap
-    display: grid
-    place-items: center
-    width: 22px
-    height: 22px
-
-  &__btn
-    width: 100%
-    height: 60px
-
-  &__separator
-    display: grid
-    place-items: center
-    position: relative
-    width: 100%
-    margin: 20px 0
-    @include font-style(normal, $font-size-medium, $font-roboto, $secondary)
-
-    &:before,
-    &:after
-      content: ""
-      position: absolute
-      top: 50%
-      width: 100px
-      height: 1.5px
-      background-color: $secondary
-
-    &:before
-      left: calc(50% - 24px)
-      transform: translate(-100%, -50%)
-
-    &:after
-      left: calc(50% + 24px)
-      transform: translate(0, -50%)
-
-  &__login-google-btn
-    width: 100%
-    height: 60px
-    margin-bottom: 30px
-
-  &__sign-up
-    @include font-style(normal, $font-size-medium, $font-radio-canada, $white)
-
-  &__link
-    position: relative
-    @include font-style(bold, $font-size-medium, $font-radio-canada, $secondary)
-
-    &:before
-      content: ""
-      position: absolute
-      bottom: 0
-      left: 0
-      width: 0
-      height: 1.5px
-      background-color: $secondary
-      transition: width .5s ease-in-out
-
-    &:is(&_hover:hover, &_focus:focus):before
-      width: 100%
-
-
-  &__password-check
-    display: flex
-    justify-content: space-between
-    align-items: center
-    position: absolute
-    gap: 0 20px
-    width: 100%
-    height: auto
-    padding: 5px
-    margin-top: 10px
-    opacity: 0
-    transform: translateY(-10px)
-    transition: opacity .2s ease-in-out, transform .2s ease-in-out
-
-    &_show
-      position: relative
-      transform: translateY(0)
-      opacity: 1
-
-.automatically-visit
-  display: flex
-  align-items: center
-  gap: 0 10px
-  margin: 20px 0 30px 0
-
-  &__text
-    @include font-style(normal, $font-size-small, $font-roboto, $white)
+    width: 50%
+    height: 100%
+    padding: 80px 30px

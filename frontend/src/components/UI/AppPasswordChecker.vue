@@ -1,14 +1,19 @@
 <template>
   <div class="stretch-container">
-    <div class="stretch" :class="'stretch_level-' + stretchLevel"></div>
-    <div v-if="stretchLevel !== 4" class="bulb"></div>
+    <div
+      class="stretch"
+      :class="'stretch_level-' + stretchLevel">
+    </div>
+    <div
+      v-if="stretchLevel !== 4"
+      class="bulb">
+    </div>
   </div>
 </template>
 
 
 <script setup>
 import { computed } from "vue"
-
 const props = defineProps({
   notCheckedPassword: {
     required: true,
@@ -20,14 +25,12 @@ const scorePassword = computed(() => {
   let score = 0
   if (!props.notCheckedPassword) return score
 
-  // award every unique letter until 5 repetitions
   const letters = {}
   for (let i = 0; i < props.notCheckedPassword.length; i++) {
     letters[props.notCheckedPassword[i]] = (letters[props.notCheckedPassword[i]] || 0) + 1
     score += 5.0 / letters[props.notCheckedPassword[i]]
   }
 
-  // bonus points for mixing it up
   const variations = {
     digits: /[0-9]/.test(props.notCheckedPassword),
     lower: /[a-z]/.test(props.notCheckedPassword),
@@ -47,25 +50,22 @@ const scorePassword = computed(() => {
 
 const stretchLevel = computed(() => {
   switch (true) {
-    case (scorePassword.value === 0): return 0
-    case (scorePassword.value < 25): return 1
-    case (scorePassword.value < 50): return 2
-    case (scorePassword.value < 75): return 3
-    case (scorePassword.value >= 75): return 4
+    case (scorePassword.value === 0):
+      return 0
+    case (scorePassword.value < 25):
+      return 1
+    case (scorePassword.value < 50):
+      return 2
+    case (scorePassword.value < 75):
+      return 3
+    case (scorePassword.value >= 75):
+      return 4
   }
 })
 
 </script>
 
 <style scoped lang="sass">
-.stretch-container
-  &__dialog
-    position: fixed
-    top: 50%
-    left: 50%
-    transform: translate(-50%, -50%)
-    min-width: $dialog-min-width
-    min-height: $dialog-min-height
 
 .stretch
   width: 0
