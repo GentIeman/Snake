@@ -1,46 +1,61 @@
 <template>
-  <input
-    :type="typeValidator"
-    class="input input_focus input_hover"
-    :placeholder="placeholderValidator"
-    :name="nameValidator"
-  >
+    <input
+      :type="localType"
+      class="input"
+      :placeholder="placeholder"
+      :name="name"
+      :autocomplete="isAutoComplete"
+      required
+      @input="$emit('update:fieldData', $event.target.value)"
+    >
+    <button
+      v-if="type === 'password'"
+      type="button"
+      class="password-toggle"
+      :class="{'show_password': localType === 'text'}"
+      @click="switchVisibility"
+    ></button>
 </template>
 
 <script setup>
-import { defineProps, computed } from "vue"
+import { ref, computed } from "vue"
 
 const props = defineProps({
   type: {
     type: String,
+    default: "text",
     required: true
   },
   placeholder: {
     type: String,
-    default: "",
+    default: "Placeholder",
     required: false
   },
   name: {
     type: String,
     required: true
+  },
+  fieldData: {
+    type: String,
+    default: "",
+    required: false
   }
 })
 
-const typeValidator = computed(() => props.type.toLowerCase())
+const emits = defineEmits(["update:fieldData"])
 
-const placeholderValidator = computed(() => props.placeholder)
-
-const nameValidator = computed(() => props.name.toLowerCase())
-
+let localType = ref(props.type)
+const switchVisibility = () => localType.value = localType.value === "password" ? "text" : "password"
+const isAutoComplete = computed(() => props.type === "password" ? "on" : "off")
 </script>
 
 <style scoped lang="sass">
 .input
-  width: inherit
-  height: inherit
-  padding: $input-placeholder-padding
-  background-color: transparent
+  padding: $input-padding
   outline: none
+  width: 100%
+  height: 100%
+  background: transparent
   border: none
   @include font-style(normal, $font-size-medium, $font-roboto, $white)
 
@@ -56,4 +71,6 @@ const nameValidator = computed(() => props.name.toLowerCase())
   outline: none
   cursor: pointer
 
+.show_password
+  background-image: url("@/static/icons/eye.svg")
 </style>

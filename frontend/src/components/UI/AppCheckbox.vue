@@ -1,6 +1,12 @@
 <template>
-  <input type="checkbox" class="checkbox">
-  <span class="check-icon"></span>
+  <div class="checkbox-container">
+    <input
+      type="checkbox"
+      class="checkbox"
+      required
+    >
+    <span class="check-icon"></span>
+  </div>
 </template>
 
 <script setup></script>
@@ -12,13 +18,10 @@
   width: inherit
   height: inherit
   cursor: pointer
-  z-index: 2
+  z-index: 1
 
   &:checked ~ .check-icon
     opacity: 1
-
-  &:is(&_hover:hover, &_focus-within:focus)
-    box-shadow: 0 0 0 2px $secondary
 
 .check-icon
   position: absolute
@@ -28,7 +31,6 @@
   background-color: $secondary
   transition: opacity .3s ease-in
   opacity: 0
-  cursor: pointer
 
   &:after
     content: ""

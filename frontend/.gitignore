@@ -14,7 +14,10 @@ dist
 dist-ssr
 coverage
 *.local
+pnpm-lock.yaml
+.storybook
 
+/src/stories
 /cypress/videos/
 /cypress/screenshots/
 
