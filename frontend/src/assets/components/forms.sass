@@ -1,0 +1,127 @@
+@import "../tools"
+
+.form
+  position: relative
+
+  &__fieldset
+    display: grid
+    gap: 30px 0
+    border: none
+
+  &__legend
+    display: block
+    margin-bottom: 30px
+    @include font-style(bold, $font-size-large, $font-radio-canada, $white)
+
+  &__label
+    display: flex
+    width: 100%
+    height: 50px
+    border: solid 1.5px $secondary
+    border-radius: $border-radius-medium
+    transition: box-shadow .2s ease-in-out
+
+    &:is(&_hover:hover, &_focus:focus-within)
+      box-shadow: 0 0 0 2px $secondary
+
+    &_checkbox
+      align-items: center
+      border: none
+      gap: 0 10px
+
+  &__password-checker
+    display: none
+    justify-content: space-between
+    align-items: center
+    gap: 0 20px
+    width: 100%
+    height: 30px
+
+    &_visible
+      display: flex
+      animation: slide-down .2s ease-in-out
+      transition: opacity .2s ease-in-out
+
+      @keyframes slide-down
+        from
+          transform: translateY(-100%)
+          opacity: .5
+        to
+          transform: translateY(0)
+          opacity: 1
+
+
+  &__checkbox
+    display: grid
+    place-items: center
+    position: relative
+    width: 22px
+    height: 22px
+    border: solid $input-border-width $secondary
+    background-color: $checkbox-background
+    border-radius: $checkbox-border-radius
+    transition: box-shadow .2s ease-in-out
+
+    &:is(&_hover:hover, &_focus:focus-within)
+      box-shadow: 0 0 0 1px $secondary
+
+  &__btn
+    display: flex
+    justify-content: center
+    align-items: center
+    gap: 0 10px
+    width: 100%
+    height: 60px
+
+  &__separator
+    display: grid
+    place-items: center
+    position: relative
+    width: 100%
+    @include font-style(normal, $font-size-medium, $font-roboto, $secondary)
+
+    &:before,
+    &:after
+      content: ""
+      position: absolute
+      top: 50%
+      width: 100px
+      height: 1.5px
+      background-color: $secondary
+
+    &:before
+      left: calc(50% - 24px)
+      transform: translate(-100%, -50%)
+
+    &:after
+      left: calc(50% + 24px)
+      transform: translate(0, -50%)
+
+  &__login-google-btn
+    width: 100%
+    height: 60px
+
+  &__link
+    position: relative
+    @include font-style(bold, $font-size-medium, $font-radio-canada, $secondary)
+
+    &:before
+      content: ""
+      position: absolute
+      bottom: 0
+      left: 0
+      width: 0
+      height: 1.5px
+      background-color: $secondary
+      transition: width .5s ease-in-out
+
+    &:is(&_hover:hover, &_focus:focus):before
+      width: 100%
+
+  &__explanation
+    @include font-style(normal, $font-size-medium, $font-radio-canada, $white)
+
+  &__footer
+    display: grid
+    margin-top: 20px
+    gap: 20px 0
