@@ -1,1 +1,6 @@
+# Folders
 .idea
+
+# Files
+package-lock.json
+package.json
