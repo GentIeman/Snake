@@ -52,7 +52,7 @@ const scorePassword = computed(() => {
     lower: /[a-z]/.test(props.notCheckedPassword),
     upper: /[A-Z]/.test(props.notCheckedPassword),
     symbols: /\W/.test(props.notCheckedPassword),
-    length: /.{8,}/.test(props.notCheckedPassword)
+    length: /^[a-z]{8,}$/.test(props.notCheckedPassword)
   }
 
   let variationCount = 0
