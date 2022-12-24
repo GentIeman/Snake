@@ -6,14 +6,30 @@
     </div>
     <div
       v-if="stretchLevel !== 4"
-      class="bulb">
+      class="bulb"
+      @click="isVisibleModal = true"
+    >
     </div>
+      <Modal
+        v-model:close-modal="isVisibleModal"
+        class="stretch-container__modal"
+        :is-password="true"
+        :is-show="isVisibleModal"
+        :missing-items="missingItems">
+        <template #headline>
+          Your password is missing the following items:
+        </template>
+      </Modal>
   </div>
 </template>
 
 
 <script setup>
-import { computed } from "vue"
+import { computed, ref } from "vue"
+import Modal from "@/components/UI/AppModal.vue"
+
+let isVisibleModal = ref(false)
+
 const props = defineProps({
   notCheckedPassword: {
     required: true,
@@ -63,9 +79,28 @@ const stretchLevel = computed(() => {
   }
 })
 
+const missingItems = computed(() => {
+  const items = []
+  if (props.notCheckedPassword.length < 8) items.push("8 characters")
+  if (!/[A-Z]/.test(props.notCheckedPassword)) items.push("1 uppercase letter")
+  if (!/[a-z]/.test(props.notCheckedPassword)) items.push("1 lowercase letter")
+  if (!/[0-9]/.test(props.notCheckedPassword)) items.push("1 number")
+  if (!/\W/.test(props.notCheckedPassword)) items.push("1 special character")
+  return items
+})
+
 </script>
 
 <style scoped lang="sass">
+.stretch-container
+  position: relative
+
+  &__modal
+    position: fixed
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    z-index: 1
 
 .stretch
   width: 0
