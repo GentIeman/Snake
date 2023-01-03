@@ -1,6 +1,6 @@
 # Folders
 .idea
-
+/strapi
 # Files
 package-lock.json
 package.json
